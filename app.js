@@ -3,29 +3,29 @@ function en_to_bn_number_conversion(en_number) {
 
 	for (var i = 0; i < en_number.length; i++) {
 
-		if (en_number[i] == '0') bn_number = bn_number + "০";
+		if (en_number[i] == '0') bn_number = bn_number + "٠";
 
-		if (en_number[i] == '1') bn_number = bn_number + "১";
+		if (en_number[i] == '1') bn_number = bn_number + "١";
 
-		if (en_number[i] == '2') bn_number = bn_number + "২";
+		if (en_number[i] == '2') bn_number = bn_number + "٢";
 
-		if (en_number[i] == '3') bn_number = bn_number + "৩";
+		if (en_number[i] == '3') bn_number = bn_number + "٣";
 
-		if (en_number[i] == '4') bn_number = bn_number + "৪";
+		if (en_number[i] == '4') bn_number = bn_number + "٤";
 
-		if (en_number[i] == '5') bn_number = bn_number + "৫";
+		if (en_number[i] == '5') bn_number = bn_number + "٥";
 
-		if (en_number[i] == '6') bn_number = bn_number + "৬";
+		if (en_number[i] == '6') bn_number = bn_number + "٦";
 
-		if (en_number[i] == '7') bn_number = bn_number + "৭";
+		if (en_number[i] == '7') bn_number = bn_number + "٧";
 
-		if (en_number[i] == '8') bn_number = bn_number + "৮";
+		if (en_number[i] == '8') bn_number = bn_number + "٨";
 
-		if (en_number[i] == '9') bn_number = bn_number + "৯";
+		if (en_number[i] == '9') bn_number = bn_number + "٩";
 
 		if (en_number[i] == ':') bn_number = bn_number + ":";
 		
-		if (en_number[i] == 'am') bn_number = bn_number + "asjg";
+		if (en_number[i] == 'am') bn_number = bn_number + "ص";
 
 	}
 
@@ -58,9 +58,9 @@ function error(error) {
 		break;
 	}
 	// console.log(message);
-	document.getElementById("notification_message").innerHTML = "<strong>Warning!</strong> "+message+" Time showing according to <strong>Dhaka, Bangladesh</strong>";
+	document.getElementById("notification_message").innerHTML = "<strong>Warning!</strong> "+message+" Time showing according to <strong>جدة, السعودية</strong>";
 	document.getElementById("notification_panel").style.display = 'block';
-	showPrayTimes(23.8043699, 90.3997218, prayTimes);
+	showPrayTimes(21.602438, 39.166312, prayTimes);
 }
 
 function showPosition(position) {
@@ -77,7 +77,7 @@ function showPrayTimes(lat, long, prayTimes) {
 	var prayerTimes = prayTimes.getTimes(new Date(), [lat, long, 300], +6, 0, '12h');
 
 	var list = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Sunset', 'Maghrib', 'Isha', 'Midnight'];
-	var listBN = ['ফজর', 'সূর্যোদয়', 'জোহর', 'আসর', 'সূর্যাস্ত', 'মাগরিব', 'ইশা', 'মধ্যরাত'];
+	var listBN = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'إمساك', 'المغرب', 'العشاء', 'منتصف الليل'];
 
 	var html = '<table id="timetable" class="table table-bordered">';
 	var nextPrayerTime;
@@ -156,7 +156,7 @@ function showPrayTimes(lat, long, prayTimes) {
 	}
 	var table_footer_title = "Next Prayer Time Remaining";
 	if($("input[name='lang']:checked").val() === 'bn'){
-		var table_footer_title = "পরবর্তী নামাজের সময় বাকী";
+		var table_footer_title = "الوقت المتبقي على الصلاة القادمة";
 	}
 
 	html += '<tfoot><tr class="text-center"><td colspan="2"><strong id="table_footer_title">'+table_footer_title+'</strong><br> '+nextPrayerTimeName+' '+nextPrayerTimeRemaining+'</td></tfoot>';
@@ -173,8 +173,8 @@ setInterval(getLocation, 0);
 function setCurrentDateTime() {
 	if($("input[name='lang']:checked").val() === 'bn'){
 		moment.locale('bn');
-		document.getElementById("table_header_title").innerHTML = "নামাজের সময়";
-		document.getElementById("footer_note").innerHTML = "* উজ্জ্বল সারি বর্তমান ওয়াক্ত প্রকাশ করে";
+		document.getElementById("table_header_title").innerHTML = "أثناء الصلاة";
+		document.getElementById("footer_note").innerHTML = "* ابرز تحديد الوقت الحالى";
 	}else{
 		moment.locale('en');
 		document.getElementById("table_header_title").innerHTML = "Prayer Times";
